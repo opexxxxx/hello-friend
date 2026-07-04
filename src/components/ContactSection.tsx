@@ -56,45 +56,16 @@ const ContactSection = () => {
 
   const handleSubmit = async (values: FormValues) => {
     try {
-      const response = await fetch(`https://umzfopwnhlxftnriaugq.supabase.co/functions/v1/submit-contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      await submitContact({
+        data: {
           name: values.name,
           email: values.email,
-          phone: values.phone || "",
-          project: values.project || "",
+          phone: values.phone || undefined,
+          project: values.project || undefined,
           message: values.message,
-          source: "homepage-contact"
-        }),
+          source: "homepage-contact",
+        },
       });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        if (response.status === 429) {
-          toast({
-            title: "Zu viele Anfragen",
-            description: result.error || "Bitte warten Sie 15 Minuten bevor Sie erneut eine Anfrage senden.",
-            variant: "destructive",
-          });
-          return;
-        }
-        
-        if (result.details && Array.isArray(result.details)) {
-          toast({
-            title: "Validierungsfehler",
-            description: result.details.join(", "),
-            variant: "destructive",
-          });
-          return;
-        }
-        
-        throw new Error(result.error || "Network response was not ok");
-      }
-
       toast({
         title: "Anfrage gesendet!",
         description: "Wir werden uns bald bei Ihnen melden.",
@@ -102,13 +73,16 @@ const ContactSection = () => {
       form.reset();
     } catch (error) {
       console.error("Error processing form:", error);
+      const message =
+        error instanceof Error ? error.message : "Unbekannter Fehler";
       toast({
         title: "Fehler",
-        description: "Es gab ein Problem beim Senden Ihrer Anfrage. Bitte versuchen Sie es erneut.",
+        description: message,
         variant: "destructive",
       });
     }
   };
+
 
   return (
     <section id="contact" className="py-16 bg-gradient-to-br from-primary/5 to-secondary/10">
