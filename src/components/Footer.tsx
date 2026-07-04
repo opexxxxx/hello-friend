@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-semibold mb-2">Allaround-Handwerker</h3>
+            <h3 className="text-2xl font-semibold mb-2">Handwerksdienstleistungen</h3>
             <p className="text-primary-foreground/80">
               Ihr zuverlässiger Partner für alle Handwerksleistungen
             </p>
