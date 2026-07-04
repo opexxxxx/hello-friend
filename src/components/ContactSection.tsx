@@ -73,8 +73,11 @@ const ContactSection = () => {
       form.reset();
     } catch (error) {
       console.error("Error processing form:", error);
-      const message =
-        error instanceof Error ? error.message : "Unbekannter Fehler";
+      const SAFE_PREFIXES = ["Zu viele Anfragen"];
+      const rawMessage = error instanceof Error ? error.message : "";
+      const message = SAFE_PREFIXES.some((s) => rawMessage.startsWith(s))
+        ? rawMessage
+        : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.";
       toast({
         title: "Fehler",
         description: message,
