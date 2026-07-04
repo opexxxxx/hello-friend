@@ -15,15 +15,18 @@ const Impressum = () => {
           </div>
 
           <div className="prose prose-lg max-w-none">
-            <h1 className="text-4xl font-bold mb-8">Impressum</h1>
+            <h1 className="text-4xl font-bold mb-3">Impressum</h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              Einblicke in unsere vielfältigen Handwerksleistungen und Projekte.
+            </p>
             
             <div className="space-y-8">
               <section>
                 <h2 className="text-2xl font-semibold mb-4">Angaben gemäß § 5 TMG</h2>
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <p><strong>Mario Blazevic</strong></p>
-                  <p>Spital Str. 14</p>
-                  <p>74177 Bad Friedrichshall</p>
+                  <p>Ludwigsburger Str. 95</p>
+                  <p>74080 Heilbronn</p>
                 </div>
               </section>
 
@@ -56,8 +59,8 @@ const Impressum = () => {
                 <h2 className="text-2xl font-semibold mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
                  <div className="bg-white p-6 rounded-lg shadow-sm">
                    <p>Mario Blazevic</p>
-                  <p>Spital Str. 14</p>
-                  <p>74177 Bad Friedrichshall</p>
+                  <p>Ludwigsburger Str. 95</p>
+                  <p>74080 Heilbronn</p>
                 </div>
               </section>
 

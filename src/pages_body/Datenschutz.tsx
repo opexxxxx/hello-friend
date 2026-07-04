@@ -31,6 +31,35 @@ const Datenschutz = () => (
               </div>
             </section>
             <section>
+              <h2 className="text-2xl font-semibold mb-4">2.1 Webhosting über Hostinger</h2>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <p>
+                  Unsere Website wird bei dem externen Dienstleister Hostinger International Ltd., 61 Lordou Vironos Street, 6023 Larnaca, Zypern gehostet. Die Datenverarbeitung erfolgt auf Grundlage eines Vertrags zur Auftragsverarbeitung gemäß Art. 28 DSGVO. Die Server können sich in verschiedenen Ländern (innerhalb und außerhalb der EU) befinden. Hostinger setzt technische und organisatorische Maßnahmen zum Schutz der Daten ein. Weitere Informationen finden Sie in der Datenschutzerklärung von Hostinger:
+                  {" "}
+                  <a href="https://www.hostinger.com/legal/privacy-policy" target="_blank" rel="noreferrer">
+                    https://www.hostinger.com/legal/privacy-policy
+                  </a>
+                </p>
+                <p className="mt-4">
+                  Im Rahmen der Hosting-Dienstleistung werden durch Hostinger automatisch folgende Daten erhoben und temporär in sogenannten Server-Logfiles gespeichert:
+                </p>
+                <ul className="list-disc pl-5 mt-4">
+                  <li>IP-Adresse des anfragenden Geräts</li>
+                  <li>Datum und Uhrzeit des Zugriffs</li>
+                  <li>Name und URL der abgerufenen Datei</li>
+                  <li>Referrer-URL (die zuvor besuchte Seite)</li>
+                  <li>Browsertyp und -version sowie verwendetes Betriebssystem</li>
+                  <li>ggf. Name des Access-Providers</li>
+                </ul>
+                <p className="mt-4">
+                  Diese Datenverarbeitung dient der Aufrechterhaltung des technischen Betriebs, der Sicherheit sowie der statistischen Auswertung und erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
+                </p>
+                <p className="mt-4">
+                  Ein Rückschluss auf bestimmte Personen erfolgt nicht. Diese Logfiles werden in der Regel nach spätestens 30 Tagen automatisch gelöscht, sofern keine sicherheitsrelevante Erfordernis zur Aufbewahrung besteht (z. B. zur Aufklärung von Missbrauch oder Angriffen).
+                </p>
+              </div>
+            </section>
+            <section>
               <h2 className="text-2xl font-semibold mb-4">3. Kontaktformular</h2>
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <p>
@@ -87,8 +116,8 @@ const Datenschutz = () => (
               <div className="bg-white p-6 rounded-lg shadow-sm">
                  <p>
                    <strong>Mario Blazevic</strong><br />
-                   Spital Str. 14<br />
-                   74177 Bad Friedrichshall<br />
+                   Ludwigsburger Str. 95<br />
+                   74080 Heilbronn<br />
                    E-Mail: <a href="mailto:info@mario-handwerker.com">info@mario-handwerker.com</a><br />
                    Telefon: +49 15171847310
                  </p>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brush, Hammer, Phone, Sparkles, Wrench } from "lucide-react";
+import { ArrowRight, Brush, Hammer, Phone, Wrench } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const backgroundImage = "/lovable-uploads/bc5636ab-96d7-4a26-8fb1-515007ea3856.png";
@@ -54,7 +54,6 @@ const HeroSection = () => {
         <div className="grid flex-1 items-center gap-8 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
           <div className="max-w-3xl">
             <p className="mb-5 inline-flex items-center rounded-full bg-black/80 px-4 py-2 text-sm font-medium text-white">
-              <Sparkles className="mr-2 h-4 w-4" />
               Renovierung, Ausbau und Reparatur aus einer Hand
             </p>
             <h1 className="max-w-3xl text-5xl font-semibold leading-[0.95] tracking-normal text-[#090909] md:text-7xl lg:text-8xl">

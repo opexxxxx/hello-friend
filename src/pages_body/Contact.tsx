@@ -9,6 +9,7 @@ import { Link } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { submitContact } from "@/lib/contact.functions";
 import {
   Form,
   FormControl,
@@ -17,7 +18,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { submitContact } from "@/lib/contact.functions";
 
 const formSchema = z.object({
   name: z.string()
@@ -30,7 +30,6 @@ const formSchema = z.object({
   phone: z.string()
     .optional()
     .refine((val) => !val || /^[\d\s\-\+\(\)]+$/.test(val), "Telefonnummer darf nur Zahlen, Leerzeichen und Sonderzeichen enthalten"),
-  project: z.string().optional(),
   message: z.string()
     .min(10, "Nachricht muss mindestens 10 Zeichen lang sein")
     .max(1000, "Nachricht darf maximal 1000 Zeichen lang sein"),
@@ -47,7 +46,6 @@ const Contact = () => {
       name: "",
       email: "",
       phone: "",
-      project: "",
       message: "",
     },
   });
@@ -61,21 +59,20 @@ const Contact = () => {
           name: values.name,
           email: values.email,
           phone: values.phone || undefined,
-          project: values.project || undefined,
           message: values.message,
           source: "contact-page",
         },
       });
       toast({
-        title: "Anfrage erfolgreich gesendet!",
-        description: "Wir werden uns binnen 24 Stunden bei Ihnen melden.",
+        title: "Anfrage gesendet!",
+        description: "Wir werden uns bald bei Ihnen melden.",
       });
       form.reset();
     } catch (error) {
       console.error("Error processing form:", error);
       const SAFE_PREFIXES = ["Zu viele Anfragen"];
       const rawMessage = error instanceof Error ? error.message : "";
-      const message = SAFE_PREFIXES.some((s) => rawMessage.startsWith(s))
+      const message = SAFE_PREFIXES.some((p) => rawMessage.startsWith(p))
         ? rawMessage
         : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.";
       toast({
@@ -85,7 +82,6 @@ const Contact = () => {
       });
     }
   };
-
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 to-secondary/10">
@@ -101,7 +97,7 @@ const Contact = () => {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Kontakt</h1>
             <p className="text-xl text-muted-foreground">
-              Lassen Sie uns Ihr Projekt gemeinsam planen
+              Nehmen Sie Kontakt mit uns auf, um Ihre Projekte zu besprechen oder Fragen zu stellen.
             </p>
           </div>
 
@@ -185,7 +181,7 @@ const Contact = () => {
                       />
                     </div>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div>
                       <FormField
                         control={form.control}
                         name="phone"
@@ -194,19 +190,6 @@ const Contact = () => {
                             <FormLabel>Telefon</FormLabel>
                             <FormControl>
                               <Input placeholder="Ihre Telefonnummer" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="project"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Projektart</FormLabel>
-                            <FormControl>
-                              <Input placeholder="z.B. Trockenbau, Maler" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
