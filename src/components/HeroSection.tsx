@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Brush, Hammer, Phone, Sparkles, Wrench } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 
 const backgroundImage = "/lovable-uploads/bc5636ab-96d7-4a26-8fb1-515007ea3856.png";
 const videoPath = "/videos/handwerker-bg.mp4";
