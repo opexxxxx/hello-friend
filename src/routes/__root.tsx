@@ -80,14 +80,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Mario Handwerker – Trockenbau, Maler & Renovierung" },
+      {
+        name: "description",
+        content:
+          "Ihr Allround-Handwerker in Bad Friedrichshall: Trockenbau, Maler, Renovierung, Wohnungsbau, Neugestaltung.",
+      },
+      { name: "author", content: "Mario Handwerker" },
+      { property: "og:title", content: "Mario Handwerker" },
+      {
+        property: "og:description",
+        content: "Trockenbau, Maler, Renovierung – zuverlässig und sauber.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
