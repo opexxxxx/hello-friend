@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Page from "./_pages/Datenschutz";
+import Page from "@/pages_body/Datenschutz";
 
 export const Route = createFileRoute("/datenschutz")({
   head: () => ({

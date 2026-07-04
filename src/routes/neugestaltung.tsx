@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Page from "./_pages/Neugestaltung";
+import Page from "@/pages_body/Neugestaltung";
 
 export const Route = createFileRoute("/neugestaltung")({
   head: () => ({
