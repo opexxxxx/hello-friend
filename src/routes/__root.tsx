@@ -80,20 +80,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mario Handwerker – Trockenbau, Maler & Renovierung" },
+      { title: "Mario Handwerker – Ihr Allround-Handwerker in Bad Friedrichshall" },
       {
         name: "description",
         content:
           "Ihr Allround-Handwerker in Bad Friedrichshall: Trockenbau, Maler, Renovierung, Wohnungsbau, Neugestaltung.",
       },
       { name: "author", content: "Mario Handwerker" },
-      { property: "og:title", content: "Mario Handwerker" },
+      { property: "og:title", content: "Mario Handwerker – Ihr Allround-Handwerker in Bad Friedrichshall" },
       {
         property: "og:description",
         content: "Trockenbau, Maler, Renovierung – zuverlässig und sauber.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Mario Handwerker – Ihr Allround-Handwerker in Bad Friedrichshall" },
+      { name: "description", content: "Trockenbau, Maler, Renovierung, Wohnungsbau und Neugestaltung aus einer Hand. Zuverlässig, sauber, termintreu." },
+      { property: "og:description", content: "Trockenbau, Maler, Renovierung, Wohnungsbau und Neugestaltung aus einer Hand. Zuverlässig, sauber, termintreu." },
+      { name: "twitter:description", content: "Trockenbau, Maler, Renovierung, Wohnungsbau und Neugestaltung aus einer Hand. Zuverlässig, sauber, termintreu." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/20370c82-5080-43bf-9371-ccbec5e7da09/id-preview-e3627301--671b4bbd-b052-4b01-8e2e-958d08f8e500.lovable.app-1783170438259.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/20370c82-5080-43bf-9371-ccbec5e7da09/id-preview-e3627301--671b4bbd-b052-4b01-8e2e-958d08f8e500.lovable.app-1783170438259.png" },
     ],
     links: [
       {
