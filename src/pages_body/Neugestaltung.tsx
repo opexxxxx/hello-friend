@@ -41,7 +41,7 @@ const Neugestaltung = () => {
           <Link to="/" className="inline-flex items-center text-primary hover:text-primary/80 mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Zurück zur Startseite
-          </a>
+          </Link>
           <div className="max-w-4xl mx-auto text-center">
             <Hammer className="h-16 w-16 text-primary mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
@@ -206,7 +206,7 @@ const Neugestaltung = () => {
             Lassen Sie uns gemeinsam Ihre Räume neu erfinden. Mit unserer Kreativität und Ihren Ideen entstehen Wohnträume.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <TMPHASH>
+            <a href="/#contact">
               <Button size="lg">
                 <Phone className="mr-2 h-5 w-5" />
                 Gestaltungsberatung anfragen
@@ -216,7 +216,7 @@ const Neugestaltung = () => {
               <Button variant="outline" size="lg">
                 Zurück zur Startseite
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
