@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WohnungsbauRouteImport } from './routes/wohnungsbau'
+import { Route as RenovierungRouteImport } from './routes/renovierung'
+import { Route as NeugestaltungRouteImport } from './routes/neugestaltung'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WohnungsbauRoute = WohnungsbauRouteImport.update({
+  id: '/wohnungsbau',
+  path: '/wohnungsbau',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RenovierungRoute = RenovierungRouteImport.update({
+  id: '/renovierung',
+  path: '/renovierung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NeugestaltungRoute = NeugestaltungRouteImport.update({
+  id: '/neugestaltung',
+  path: '/neugestaltung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
+  '/neugestaltung': typeof NeugestaltungRoute
+  '/renovierung': typeof RenovierungRoute
+  '/wohnungsbau': typeof WohnungsbauRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
+  '/neugestaltung': typeof NeugestaltungRoute
+  '/renovierung': typeof RenovierungRoute
+  '/wohnungsbau': typeof WohnungsbauRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
+  '/neugestaltung': typeof NeugestaltungRoute
+  '/renovierung': typeof RenovierungRoute
+  '/wohnungsbau': typeof WohnungsbauRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/datenschutz'
+    | '/impressum'
+    | '/neugestaltung'
+    | '/renovierung'
+    | '/wohnungsbau'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/datenschutz'
+    | '/impressum'
+    | '/neugestaltung'
+    | '/renovierung'
+    | '/wohnungsbau'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/datenschutz'
+    | '/impressum'
+    | '/neugestaltung'
+    | '/renovierung'
+    | '/wohnungsbau'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  ImpressumRoute: typeof ImpressumRoute
+  NeugestaltungRoute: typeof NeugestaltungRoute
+  RenovierungRoute: typeof RenovierungRoute
+  WohnungsbauRoute: typeof WohnungsbauRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wohnungsbau': {
+      id: '/wohnungsbau'
+      path: '/wohnungsbau'
+      fullPath: '/wohnungsbau'
+      preLoaderRoute: typeof WohnungsbauRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/renovierung': {
+      id: '/renovierung'
+      path: '/renovierung'
+      fullPath: '/renovierung'
+      preLoaderRoute: typeof RenovierungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/neugestaltung': {
+      id: '/neugestaltung'
+      path: '/neugestaltung'
+      fullPath: '/neugestaltung'
+      preLoaderRoute: typeof NeugestaltungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +177,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  ImpressumRoute: ImpressumRoute,
+  NeugestaltungRoute: NeugestaltungRoute,
+  RenovierungRoute: RenovierungRoute,
+  WohnungsbauRoute: WohnungsbauRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
