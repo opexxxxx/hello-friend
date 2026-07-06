@@ -1,5 +1,5 @@
 ## Ziel
-Kontaktanfragen sicher per Email an **zholoovalexey89@gmail.com** senden, plus automatische Bestätigung an den Absender.
+Kontaktanfragen sicher per Email an **info@mario-handwerker.com** senden, plus automatische Bestätigung an den Absender.
 
 ## Voraussetzungen
 1. **Lovable Cloud** aktivieren (Backend für Email-Versand & Rate-Limiting).
