@@ -21,7 +21,7 @@ Die bestehende Server-Function `submitContact` (`src/lib/contact.functions.ts`) 
 - Zod-Validierung bleibt (schützt vor Injection/Overflow)
 - Rate-Limit bleibt (max. 3 Anfragen / 15 Min / IP)
 - **Neu:** nach erfolgreicher Validierung zwei Emails in die Queue legen:
-  1. Interne Notification → zholoovalexey89@gmail.com
+  1. Interne Notification → info@mario-handwerker.com
   2. Bestätigung → Email des Absenders
 - Idempotenz-Key verhindert Doppelversand bei Retries
 - Fehler-Nachrichten an den Client bleiben generisch (keine internen Details)
