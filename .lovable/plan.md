@@ -1,5 +1,5 @@
 ## Ziel
-Kontaktanfragen sicher per Email an **zholoovalexey89@gmail.com** senden, plus automatische Bestätigung an den Absender.
+Kontaktanfragen sicher per Email an **info@mario-handwerker.com** senden, plus automatische Bestätigung an den Absender.
 
 ## Voraussetzungen
 1. **Lovable Cloud** aktivieren (Backend für Email-Versand & Rate-Limiting).
@@ -13,7 +13,7 @@ Kontaktanfragen sicher per Email an **zholoovalexey89@gmail.com** senden, plus a
 - Email-Queue-Infrastruktur provisionieren (Retries, DLQ, Suppression-Liste)
 
 ### 2. Email-Templates (React Email, im Corporate Design)
-- **`contact-notification.tsx`** – interne Benachrichtigung an zholoovalexey89@gmail.com mit allen Formularfeldern: Name, Email, Telefon, Nachricht, Quelle (Homepage/Kontaktseite), Zeitstempel, IP.
+- **`contact-notification.tsx`** – interne Benachrichtigung an info@mario-handwerker.com mit allen Formularfeldern: Name, Email, Telefon, Nachricht, Quelle (Homepage/Kontaktseite), Zeitstempel, IP.
 - **`contact-confirmation.tsx`** – Bestätigung an den Absender mit einer Kopie seiner Anfrage und Hinweis auf Rückmeldung binnen 24h.
 
 ### 3. Sicherer Versand-Flow
@@ -21,7 +21,7 @@ Die bestehende Server-Function `submitContact` (`src/lib/contact.functions.ts`) 
 - Zod-Validierung bleibt (schützt vor Injection/Overflow)
 - Rate-Limit bleibt (max. 3 Anfragen / 15 Min / IP)
 - **Neu:** nach erfolgreicher Validierung zwei Emails in die Queue legen:
-  1. Interne Notification → zholoovalexey89@gmail.com
+  1. Interne Notification → info@mario-handwerker.com
   2. Bestätigung → Email des Absenders
 - Idempotenz-Key verhindert Doppelversand bei Retries
 - Fehler-Nachrichten an den Client bleiben generisch (keine internen Details)
