@@ -136,7 +136,7 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0 flex items-center justify-center text-center min-h-[60px] px-6">
-                  <span className="text-lg">Spital Str. 14, 74177 Bad Friedrichshall</span>
+                  <span className="text-lg">Ludwigsburger Str. 95, 74080 Heilbronn</span>
                 </CardContent>
               </Card>
             </div>
