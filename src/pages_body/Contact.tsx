@@ -54,15 +54,26 @@ const Contact = () => {
 
   const handleSubmit = async (values: FormValues) => {
     try {
-      await submitContact({
-        data: {
+      if (!FORMSPREE_ENDPOINT) {
+        throw new Error("Kontaktformular ist noch nicht konfiguriert.");
+      }
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
           name: values.name,
           email: values.email,
-          phone: values.phone || undefined,
+          phone: values.phone || "",
           message: values.message,
-          source: "contact-page",
-        },
+          _subject: `Neue Kontaktanfrage von ${values.name}`,
+        }),
       });
+      if (!response.ok) {
+        throw new Error("Senden fehlgeschlagen");
+      }
       toast({
         title: "Anfrage gesendet!",
         description: "Wir werden uns bald bei Ihnen melden.",
