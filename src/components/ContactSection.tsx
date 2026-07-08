@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import ScrollReveal from "@/components/ScrollReveal";
-import { submitContact } from "@/lib/contact.functions";
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined;
 import {
   Form,
   FormControl,
