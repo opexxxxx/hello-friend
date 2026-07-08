@@ -9,7 +9,7 @@ import { Link } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { submitContact } from "@/lib/contact.functions";
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined;
 import {
   Form,
   FormControl,
@@ -54,15 +54,26 @@ const Contact = () => {
 
   const handleSubmit = async (values: FormValues) => {
     try {
-      await submitContact({
-        data: {
+      if (!FORMSPREE_ENDPOINT) {
+        throw new Error("Kontaktformular ist noch nicht konfiguriert.");
+      }
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
           name: values.name,
           email: values.email,
-          phone: values.phone || undefined,
+          phone: values.phone || "",
           message: values.message,
-          source: "contact-page",
-        },
+          _subject: `Neue Kontaktanfrage von ${values.name}`,
+        }),
       });
+      if (!response.ok) {
+        throw new Error("Senden fehlgeschlagen");
+      }
       toast({
         title: "Anfrage gesendet!",
         description: "Wir werden uns bald bei Ihnen melden.",
