@@ -1,5 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, MapPin, ArrowLeft } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const Contact = () => {
@@ -21,42 +20,28 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 items-start">
-            <Card className="flex-1">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg flex items-center justify-center text-center">
-                  <Phone className="mr-2 h-5 w-5 text-primary" />
-                  Telefon
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0 flex items-center justify-center text-center min-h-[60px]">
-                <span className="text-lg">+49 15171847310</span>
-              </CardContent>
-            </Card>
-
-            <Card className="flex-1">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg flex items-center justify-center text-center">
-                  <Mail className="mr-2 h-5 w-5 text-primary" />
-                  E-Mail
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0 flex items-center justify-center text-center min-h-[60px]">
-                <span className="text-lg">info@mario-handwerker.com</span>
-              </CardContent>
-            </Card>
-
-            <Card className="flex-1">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg flex items-center justify-center text-center">
-                  <MapPin className="mr-2 h-5 w-5 text-primary" />
-                  Adresse
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0 flex items-center justify-center text-center min-h-[60px] px-6">
-                <span className="text-lg">Ludwigsburger Str. 95, 74080 Heilbronn</span>
-              </CardContent>
-            </Card>
+          <div className="flex flex-col items-center justify-center gap-8 text-center md:flex-row md:gap-12">
+            <div className="flex items-center gap-3">
+              <Phone className="h-5 w-5 text-primary" />
+              <div className="text-left">
+                <p className="text-sm font-semibold">Telefon</p>
+                <p className="text-lg">+49 15171847310</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Mail className="h-5 w-5 text-primary" />
+              <div className="text-left">
+                <p className="text-sm font-semibold">E-Mail</p>
+                <p className="text-lg">info@mario-handwerker.com</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <MapPin className="h-5 w-5 text-primary" />
+              <div className="text-left">
+                <p className="text-sm font-semibold">Adresse</p>
+                <p className="text-lg">Ludwigsburger Str. 95, 74080 Heilbronn</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,3 +50,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
