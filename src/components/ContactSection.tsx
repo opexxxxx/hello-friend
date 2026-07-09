@@ -10,7 +10,7 @@ const ContactSection = () => {
               Kontakt
             </h2>
 
-            <div className="space-y-8 text-[#0b1220]">
+            <div className="flex flex-col gap-8 text-[#0b1220] md:flex-row md:items-start md:justify-between">
               <div>
                 <h3 className="text-lg font-semibold">Telefon</h3>
                 <p className="mt-1 text-base">+49 15171847310</p>
