@@ -1,5 +1,10 @@
 import ScrollReveal from "@/components/ScrollReveal";
 
+const ContactSection = () => {
+  return (
+    <section id="contact" className="bg-[#e4e4e4] px-4 py-20 md:px-6 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <ScrollReveal className="lg:pl-16">
             <h2 className="mb-20 text-5xl font-semibold leading-tight text-[#0b1220] md:text-6xl">
               Kontakt
@@ -21,94 +26,6 @@ import ScrollReveal from "@/components/ScrollReveal";
                 <p className="mt-1 text-base">Ludwigsburger Str. 95 74080 Heilbronn</p>
               </div>
             </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={120}>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-5">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base font-medium text-[#0b1220]">Name*</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Ihr Name"
-                          className="h-14 rounded-lg border-[#aeb7c2] bg-white px-4 text-base"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base font-medium text-[#0b1220]">Email*</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="ihre@email.de"
-                          className="h-14 rounded-lg border-[#aeb7c2] bg-white px-4 text-base"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base font-medium text-[#0b1220]">Telefon</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Ihre Telefonnummer"
-                          className="h-14 rounded-lg border-[#aeb7c2] bg-white px-4 text-base"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base font-medium text-[#0b1220]">Nachricht*</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Beschreiben Sie Ihr Projekt..."
-                          className="min-h-[96px] resize-none rounded-lg border-[#aeb7c2] bg-white px-4 py-4 text-base"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <div className="flex justify-end pt-1">
-                  <Button
-                    type="submit"
-                    className="h-14 rounded-full bg-black px-10 text-lg font-medium text-white hover:bg-black/85"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Wird gesendet..." : "Anfrage senden"}
-                  </Button>
-                </div>
-              </form>
-            </Form>
           </ScrollReveal>
         </div>
       </div>
