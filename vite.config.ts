@@ -12,4 +12,12 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Node.js SSR build for Hostinger (Node.js Selector / Passenger).
+  // Inside the Lovable sandbox this override is ignored and Cloudflare is used
+  // for the live preview. Outside the sandbox (local `bun run build` / CI /
+  // Hostinger deploy build), Nitro emits a standalone Node server to
+  // .output/server/index.mjs with static assets in .output/public/.
+  nitro: {
+    preset: "node-server",
+  },
 });
