@@ -3,7 +3,6 @@ import { ArrowRight, Brush, Hammer, Phone, Wrench } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const backgroundImage = "/lovable-uploads/bc5636ab-96d7-4a26-8fb1-515007ea3856.png";
-const videoPath = "/videos/handwerker-bg.mp4";
 
 const HeroSection = () => {
   return (
@@ -12,19 +11,6 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center opacity-80"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />
-      <video
-        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 data-[ready=true]:opacity-80"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={backgroundImage}
-        onCanPlay={(event) => {
-          event.currentTarget.dataset.ready = "true";
-        }}
-      >
-        <source src={videoPath} type="video/mp4" />
-      </video>
       <div className="absolute inset-0 bg-[rgba(240,235,222,0.58)]" />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-2rem)] max-w-7xl flex-col rounded-[28px] border border-white/55 bg-white/38 p-5 shadow-[0_24px_80px_rgba(33,31,24,0.22)] backdrop-blur-md md:min-h-[calc(100vh-3rem)] md:p-8">
