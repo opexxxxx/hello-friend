@@ -1,43 +1,52 @@
-## Ziel
-Kontaktanfragen sicher per Email an **info@mario-handwerker.com** senden, plus automatische Bestätigung an den Absender.
+## SEO-Status
 
-## Voraussetzungen
-1. **Lovable Cloud** aktivieren (Backend für Email-Versand & Rate-Limiting).
-2. **Email-Domain** einrichten (Absender z.B. `noreply@mario-handwerker.com` – bessere Zustellbarkeit als Gmail-Absender).
+Teilweise optimiert. Vorhanden: pro Route eigene `head()` mit Title/Description/OG-Tags (`src/routes/*.tsx`, Defaults in `src/routes/__root.tsx`), `robots.txt`, Favicon, semantische Struktur mit `<h1>` im Hero.
+
+Fehlend / verbesserungswürdig (aus SEO-Scan):
+
+1. **Titles/Descriptions** — Home-Title ist 62 Zeichen (>60) und wird im `__root.tsx` **und** `routes/index.tsx` doppelt gesetzt. Description ist ebenfalls doppelt.
+2. **Canonical & og:url** — auf keiner Route gesetzt.
+3. **Sitemap** — `/sitemap.xml` fehlt (404).
+4. **llms.txt** — fehlt (für AI-Crawler wie ChatGPT/Perplexity).
+5. **Bild-Alt-Texte & ARIA** — Prozess-Bilder mit generischen Alts, Telefon-Button ohne `aria-label`, Kontaktformular-Inputs ohne saubere Labels.
+6. **Google Search Console** — nicht verbunden (optional, aber empfohlen sobald Domain live).
 
 ## Umsetzung
 
-### 1. Email-Infrastruktur
-- Lovable Cloud einschalten
-- Email-Domain-Setup starten (delegierte Subdomain, DNS via Setup-Dialog)
-- Email-Queue-Infrastruktur provisionieren (Retries, DLQ, Suppression-Liste)
+### 1. `src/routes/__root.tsx` aufräumen
+- Nur globale Defaults behalten: `charSet`, `viewport`, `og:type=website`, `og:site_name`, Twitter-Card, Favicon, Fallback-`og:image`.
+- Doppelte `description`, `og:description`, `twitter:description` sowie den Home-Title/Description **entfernen** (gehören in `routes/index.tsx`).
+- **Kein** Canonical im Root (würde mit Leaf-Canonicals kollidieren).
 
-### 2. Email-Templates (React Email, im Corporate Design)
-- **`contact-notification.tsx`** – interne Benachrichtigung an info@mario-handwerker.com mit allen Formularfeldern: Name, Email, Telefon, Nachricht, Quelle (Homepage/Kontaktseite), Zeitstempel, IP.
-- **`contact-confirmation.tsx`** – Bestätigung an den Absender mit einer Kopie seiner Anfrage und Hinweis auf Rückmeldung binnen 24h.
+### 2. Pro Route: Title kürzen + Canonical + og:url
+In `routes/index.tsx`, `contact.tsx`, `impressum.tsx`, `datenschutz.tsx`, `neugestaltung.tsx`, `renovierung.tsx`, `wohnungsbau.tsx`:
+- Title auf <60 Zeichen (z. B. Home: `"Mario Handwerker – Handwerker Bad Friedrichshall"`).
+- Jede Description einzigartig und seitenspezifisch.
+- `og:url` als Meta-Eintrag + `<link rel="canonical">` in `links`. Da noch keine Produktionsdomain veröffentlicht ist, **relative Pfade** verwenden (`href: "/"`, `content: "/contact"` etc.) — funktioniert später automatisch mit jeder Domain.
 
-### 3. Sicherer Versand-Flow
-Die bestehende Server-Function `submitContact` (`src/lib/contact.functions.ts`) wird erweitert:
-- Zod-Validierung bleibt (schützt vor Injection/Overflow)
-- Rate-Limit bleibt (max. 3 Anfragen / 15 Min / IP)
-- **Neu:** nach erfolgreicher Validierung zwei Emails in die Queue legen:
-  1. Interne Notification → info@mario-handwerker.com
-  2. Bestätigung → Email des Absenders
-- Idempotenz-Key verhindert Doppelversand bei Retries
-- Fehler-Nachrichten an den Client bleiben generisch (keine internen Details)
+### 3. Sitemap
+Neue Server-Route `src/routes/sitemap[.]xml.ts` mit allen öffentlichen Pfaden (`/`, `/contact`, `/impressum`, `/datenschutz`, `/neugestaltung`, `/renovierung`, `/wohnungsbau`). `BASE_URL` leer lassen (bis Domain veröffentlicht) — kann später gesetzt werden.
 
-### 4. Sicherheitseigenschaften (bereits vorhanden + neu)
-- ✅ Server-seitige Validierung (Zod)
-- ✅ Rate-Limiting pro IP
-- ✅ Keine rohen Server-Fehler an Client
-- ✅ Email-Suppression-Liste (Bounces/Beschwerden automatisch geblockt)
-- ✅ Queue mit Retry (keine verlorenen Anfragen)
-- ✅ HTML-Escaping durch React Email (keine XSS in Emails)
+### 4. `public/robots.txt`
+Bleibt wie ist (Allow /). `Sitemap:`-Direktive erst hinzufügen wenn eine finale Domain live ist.
 
-## Was der Nutzer noch tun muss
-- DNS-Records für die Email-Domain im Setup-Dialog eintragen (einmalig)
-- Bis DNS verifiziert ist, werden Emails in die Queue geschrieben und automatisch versendet, sobald die Domain aktiv ist
+### 5. `public/llms.txt`
+Neue Datei mit Site-Beschreibung + Link-Liste der öffentlichen Seiten (ohne Impressum/Datenschutz laut Konvention — bzw. optional).
 
-## Nicht Teil dieses Plans
-- Speichern der Anfragen in einer Datenbank (kann später ergänzt werden)
-- Admin-Dashboard zum Einsehen der Anfragen
+### 6. Barrierefreiheit / Content-Findings
+- `HeroSection.tsx`: `aria-label` an Icon-only Buttons falls vorhanden, Alt-Text der Hero-Bilder konkreter (z. B. Ort/Leistung).
+- `ProcessSection.tsx`: beschreibende Alt-Texte statt Dateinamen, H2/H3-Hierarchie prüfen.
+- `ContactSection.tsx`: `<Label htmlFor>` bzw. `aria-label` an jedes Input.
+
+### 7. Google Search Console (optional, später)
+Sobald `mario-handwerker.com` live ist: GSC verbinden, Domain via META-Tag verifizieren, Sitemap einreichen. Kann jetzt schon vorbereitet, aber sinnvoll erst nach Deployment.
+
+## Wo findest du SEO-Sachen im Projekt (aktueller Stand)
+
+- `src/routes/__root.tsx` → globale Meta-Defaults, Favicon, og:image
+- `src/routes/<name>.tsx` → pro Seite Title/Description/OG via `head()`
+- `public/robots.txt` → Crawler-Regeln
+- `public/favicon.png` / `favicon.ico` → Icons
+- Semantisches HTML (`<h1>`, `<section>`, `<nav>`, `alt=`) in den Komponenten unter `src/components/`
+
+Nach Implementierung zusätzlich: `src/routes/sitemap[.]xml.ts`, `public/llms.txt` und Canonical-/og:url-Einträge in jeder Route.

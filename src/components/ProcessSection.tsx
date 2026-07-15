@@ -9,6 +9,7 @@ const ProcessSection = () => {
       title: "Beratung & Planung",
       description: "In einem ausführlichen Beratungsgespräch vor Ort analysieren wir Ihre Wünsche und Anforderungen. Gemeinsam entwickeln wir eine detaillierte Projektplanung, die alle Aspekte Ihres Vorhabens berücksichtigt. Von der ersten Idee bis zur technischen Umsetzung - wir begleiten Sie durch jeden Planungsschritt.",
       imageUrl: "/lovable-uploads/4b76022d-360f-49f6-bc4a-28824fa4f767.png",
+      imageAlt: "Handwerker bei der Beratung und Projektplanung vor Ort mit Bauplänen",
       reverse: false
     },
     {
@@ -16,6 +17,7 @@ const ProcessSection = () => {
       title: "Materialauswahl",
       description: "Basierend auf Ihren Anforderungen und unserem Fachwissen wählen wir gemeinsam die optimalen Materialien aus. Dabei achten wir auf Qualität, Langlebigkeit und Ihr Budget. Unsere langjährigen Partnerschaften mit renommierten Herstellern ermöglichen uns, Ihnen stets beste Qualität zu fairen Preisen anzubieten.",
       imageUrl: "/lovable-uploads/e3e939d4-be7a-41b2-b287-b4a36db83582.png",
+      imageAlt: "Auswahl hochwertiger Baumaterialien und Werkzeuge für das Handwerksprojekt",
       reverse: true
     },
     {
@@ -23,6 +25,7 @@ const ProcessSection = () => {
       title: "Professionelle Ausführung", 
       description: "Unser erfahrenes Handwerkerteam setzt Ihr Projekt mit höchster Präzision und Sorgfalt um. Dabei halten wir uns strikt an vereinbarte Termine und Qualitätsstandards. Durch regelmäßige Zwischenkontrollen stellen wir sicher, dass alle Arbeiten fachgerecht und nach neuesten Standards ausgeführt werden.",
       imageUrl: "/lovable-uploads/bf7834ab-788b-4cd0-a626-45ba0b58ec84.png",
+      imageAlt: "Saubere handwerkliche Ausführung von Fliesen- und Innenausbauarbeiten im Bad",
       reverse: false
     },
     {
@@ -30,8 +33,10 @@ const ProcessSection = () => {
       title: "Qualitätskontrolle & Übergabe",
       description: "Nach Fertigstellung führen wir eine umfassende Qualitätskontrolle durch und nehmen gemeinsam mit Ihnen das Projekt ab. Wir erklären Ihnen alle durchgeführten Arbeiten und übergeben Ihnen alle relevanten Unterlagen. Auch nach Projektabschluss stehen wir Ihnen für Fragen und Nacharbeiten zur Verfügung.",
       imageUrl: "/lovable-uploads/bc5636ab-96d7-4a26-8fb1-515007ea3856.png",
+      imageAlt: "Fertig renovierter, sauber übergebener Wohnraum nach Abschluss der Handwerksarbeiten",
       reverse: true
     }
+
   ];
 
   return (
@@ -62,9 +67,10 @@ const ProcessSection = () => {
                   <div className="aspect-video bg-secondary/20 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105">
                     <img 
                       src={item.imageUrl} 
-                      alt={item.title}
+                      alt={item.imageAlt}
                       className="w-full h-full object-cover rounded-lg transition-transform duration-300 hover:scale-110"
                     />
+
                   </div>
                 </div>
               </div>
