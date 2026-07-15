@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WohnungsbauRouteImport } from './routes/wohnungsbau'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RenovierungRouteImport } from './routes/renovierung'
 import { Route as NeugestaltungRouteImport } from './routes/neugestaltung'
 import { Route as ImpressumRouteImport } from './routes/impressum'
@@ -21,6 +22,11 @@ import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/e
 const WohnungsbauRoute = WohnungsbauRouteImport.update({
   id: '/wohnungsbau',
   path: '/wohnungsbau',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RenovierungRoute = RenovierungRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/impressum': typeof ImpressumRoute
   '/neugestaltung': typeof NeugestaltungRoute
   '/renovierung': typeof RenovierungRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wohnungsbau': typeof WohnungsbauRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/impressum': typeof ImpressumRoute
   '/neugestaltung': typeof NeugestaltungRoute
   '/renovierung': typeof RenovierungRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wohnungsbau': typeof WohnungsbauRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/impressum': typeof ImpressumRoute
   '/neugestaltung': typeof NeugestaltungRoute
   '/renovierung': typeof RenovierungRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wohnungsbau': typeof WohnungsbauRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/neugestaltung'
     | '/renovierung'
+    | '/sitemap.xml'
     | '/wohnungsbau'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/neugestaltung'
     | '/renovierung'
+    | '/sitemap.xml'
     | '/wohnungsbau'
     | '/lovable/email/queue/process'
   id:
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/neugestaltung'
     | '/renovierung'
+    | '/sitemap.xml'
     | '/wohnungsbau'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   ImpressumRoute: typeof ImpressumRoute
   NeugestaltungRoute: typeof NeugestaltungRoute
   RenovierungRoute: typeof RenovierungRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WohnungsbauRoute: typeof WohnungsbauRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/wohnungsbau'
       fullPath: '/wohnungsbau'
       preLoaderRoute: typeof WohnungsbauRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/renovierung': {
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImpressumRoute: ImpressumRoute,
   NeugestaltungRoute: NeugestaltungRoute,
   RenovierungRoute: RenovierungRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   WohnungsbauRoute: WohnungsbauRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
