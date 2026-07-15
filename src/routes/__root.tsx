@@ -84,13 +84,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Ihr Allround-Handwerker in Bad Friedrichshall: Trockenbau, Maler, Renovierung, Wohnungsbau, Neugestaltung.",
+          "Trockenbau, Maler, Renovierung, Wohnungsbau und Neugestaltung aus einer Hand. Zuverlässig, sauber, termintreu.",
       },
       { name: "author", content: "Mario Handwerker" },
       { property: "og:title", content: "Mario Handwerker – Ihr Allround-Handwerker in Bad Friedrichshall" },
       {
         property: "og:description",
-        content: "Trockenbau, Maler, Renovierung – zuverlässig und sauber.",
+        content: "Trockenbau, Maler, Renovierung, Wohnungsbau und Neugestaltung aus einer Hand. Zuverlässig, sauber, termintreu.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

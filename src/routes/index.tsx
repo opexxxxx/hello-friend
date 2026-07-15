@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Trockenbau, Maler, Renovierung, Wohnungsbau und Neugestaltung aus einer Hand.",
+          "Trockenbau, Maler, Renovierung, Wohnungsbau und Neugestaltung aus einer Hand. Zuverlässig, sauber, termintreu.",
       },
     ],
   }),
