@@ -8,10 +8,13 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#d8d6cc] px-4 py-4 md:px-6">
       <div
+        role="img"
+        aria-label="Handwerker bei Renovierungsarbeiten in einem Wohnraum"
         className="absolute inset-0 bg-cover bg-center opacity-80"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />
       <div className="absolute inset-0 bg-[rgba(240,235,222,0.58)]" />
+
 
       <div className="relative mx-auto flex min-h-[calc(100vh-2rem)] max-w-7xl flex-col rounded-[28px] border border-white/55 bg-white/38 p-5 shadow-[0_24px_80px_rgba(33,31,24,0.22)] backdrop-blur-md md:min-h-[calc(100vh-3rem)] md:p-8">
         <header className="flex items-center justify-between gap-5">
@@ -61,7 +64,7 @@ const HeroSection = () => {
           <div className="relative min-h-[300px] overflow-hidden rounded-[26px] bg-black/20 shadow-[0_20px_55px_rgba(20,18,12,0.24)] md:min-h-[430px]">
             <img
               src="/lovable-uploads/bf7834ab-788b-4cd0-a626-45ba0b58ec84.png"
-              alt="Saubere Handwerksarbeit im Bad"
+              alt="Neu renoviertes Badezimmer mit sauber verlegten Fliesen von Mario Handwerker"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/35" />
