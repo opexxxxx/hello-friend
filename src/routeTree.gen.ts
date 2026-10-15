@@ -9,38 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WohnungsbauRouteImport } from './routes/wohnungsbau'
-import { Route as RenovierungRouteImport } from './routes/renovierung'
-import { Route as NeugestaltungRouteImport } from './routes/neugestaltung'
-import { Route as ImpressumRouteImport } from './routes/impressum'
-import { Route as DatenschutzRouteImport } from './routes/datenschutz'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as NeugestaltungRouteImport } from './routes/neugestaltung'
+import { Route as RenovierungRouteImport } from './routes/renovierung'
+import { Route as WohnungsbauRouteImport } from './routes/wohnungsbau'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
-const WohnungsbauRoute = WohnungsbauRouteImport.update({
-  id: '/wohnungsbau',
-  path: '/wohnungsbau',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RenovierungRoute = RenovierungRouteImport.update({
-  id: '/renovierung',
-  path: '/renovierung',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NeugestaltungRoute = NeugestaltungRouteImport.update({
-  id: '/neugestaltung',
-  path: '/neugestaltung',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImpressumRoute = ImpressumRouteImport.update({
-  id: '/impressum',
-  path: '/impressum',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DatenschutzRoute = DatenschutzRouteImport.update({
-  id: '/datenschutz',
-  path: '/datenschutz',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -48,9 +28,29 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NeugestaltungRoute = NeugestaltungRouteImport.update({
+  id: '/neugestaltung',
+  path: '/neugestaltung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RenovierungRoute = RenovierungRouteImport.update({
+  id: '/renovierung',
+  path: '/renovierung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WohnungsbauRoute = WohnungsbauRouteImport.update({
+  id: '/wohnungsbau',
+  path: '/wohnungsbau',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LovableEmailQueueProcessRoute =
@@ -137,39 +137,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/wohnungsbau': {
-      id: '/wohnungsbau'
-      path: '/wohnungsbau'
-      fullPath: '/wohnungsbau'
-      preLoaderRoute: typeof WohnungsbauRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/renovierung': {
-      id: '/renovierung'
-      path: '/renovierung'
-      fullPath: '/renovierung'
-      preLoaderRoute: typeof RenovierungRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/neugestaltung': {
-      id: '/neugestaltung'
-      path: '/neugestaltung'
-      fullPath: '/neugestaltung'
-      preLoaderRoute: typeof NeugestaltungRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/impressum': {
-      id: '/impressum'
-      path: '/impressum'
-      fullPath: '/impressum'
-      preLoaderRoute: typeof ImpressumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/datenschutz': {
-      id: '/datenschutz'
-      path: '/datenschutz'
-      fullPath: '/datenschutz'
-      preLoaderRoute: typeof DatenschutzRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -179,11 +151,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/neugestaltung': {
+      id: '/neugestaltung'
+      path: '/neugestaltung'
+      fullPath: '/neugestaltung'
+      preLoaderRoute: typeof NeugestaltungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/renovierung': {
+      id: '/renovierung'
+      path: '/renovierung'
+      fullPath: '/renovierung'
+      preLoaderRoute: typeof RenovierungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wohnungsbau': {
+      id: '/wohnungsbau'
+      path: '/wohnungsbau'
+      fullPath: '/wohnungsbau'
+      preLoaderRoute: typeof WohnungsbauRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lovable/email/queue/process': {
