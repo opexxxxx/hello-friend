@@ -44,7 +44,7 @@ const ProcessSection = () => {
           <div className="space-y-16 md:space-y-24">
             {processSteps.map((item, index) => (
               <ScrollReveal key={index} delay={(index % 2) * 100}>
-                <div className={`flex items-center gap-8 ${item.reverse ? 'flex-row-reverse' : ''}`}>
+                <div className={`flex flex-col items-center gap-8 md:flex-row ${item.reverse ? 'md:flex-row-reverse' : ''}`}>
                 <div className="flex-1">
                   <Card className="h-full transition-all duration-300 hover:shadow-lg hover:scale-105 hover:bg-craft-warm/50">
                     <CardContent className="p-8">
