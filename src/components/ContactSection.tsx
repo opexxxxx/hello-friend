@@ -92,11 +92,11 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-[#e4e4e4] px-4 py-20 md:px-6 lg:py-28">
+    <section id="contact" className="bg-[#e4e4e4] px-4 py-12 md:px-6 md:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-8 md:gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <ScrollReveal className="lg:pl-16">
-            <h2 className="mb-20 text-5xl font-semibold leading-tight text-[#0b1220] md:text-6xl">
+            <h2 className="mb-6 text-4xl md:mb-12 md:text-5xl font-semibold leading-tight text-[#0b1220] md:text-6xl">
               Kontakt
             </h2>
 
@@ -107,7 +107,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold">Email</h3>
-                <a href="mailto:info@mario-handwerker.com" className="mt-1 inline-block text-base underline underline-offset-2">
+                <a href="mailto:info@mario-handwerker.com" className="mt-1 inline-block max-w-full break-all text-base underline underline-offset-2">
                   info@mario-handwerker.com
                 </a>
               </div>
