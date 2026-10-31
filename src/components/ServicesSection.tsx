@@ -15,9 +15,9 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="leistungen" className="bg-[#ebe6da] px-4 py-20 md:px-6">
+    <section id="leistungen" className="bg-[#ebe6da] px-4 py-12 md:px-6 md:py-20">
       <div className="mx-auto max-w-7xl">
-        <ScrollReveal className="mb-10 text-center">
+        <ScrollReveal className="mb-7 text-center md:mb-10">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#7d755f]">Unsere Leistungen</p>
             <h2 className="text-4xl font-semibold leading-tight text-[#111111] md:whitespace-nowrap md:text-5xl lg:text-6xl">
@@ -26,12 +26,12 @@ const ServicesSection = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-3">
           {services.map((service, index) => (
             <ScrollReveal key={service.title} className="h-full" delay={(index % 3) * 80}>
-              <article className="group min-h-[210px] rounded-[22px] border border-white/55 bg-white/54 p-6 shadow-[0_12px_36px_rgba(58,52,38,0.08)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/75">
-                <service.icon className="mb-8 h-9 w-9 text-[#1c1a16]" />
-                <h3 className="mb-3 text-xl font-semibold text-[#171511]">{service.title}</h3>
+              <article className="group sm:min-h-[210px] rounded-[22px] border border-white/55 bg-white/54 p-4 sm:p-6 shadow-[0_12px_36px_rgba(58,52,38,0.08)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/75">
+                <service.icon className="mb-3 h-8 w-8 sm:mb-8 sm:h-9 sm:w-9 text-[#1c1a16]" />
+                <h3 className="mb-2 text-xl font-semibold text-[#171511]">{service.title}</h3>
                 <p className="text-sm leading-relaxed text-[#676052]">{service.description}</p>
               </article>
             </ScrollReveal>
