@@ -40,30 +40,30 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section id="ablauf" className="py-16 bg-gradient-to-br from-craft-bg via-craft-accent to-craft-warm">
+    <section id="ablauf" className="py-12 md:py-16 bg-gradient-to-br from-craft-bg via-craft-accent to-craft-warm">
       <div className="container mx-auto px-4">
         <ScrollReveal>
-          <h2 className="text-3xl font-bold text-center mb-12">Unser Arbeitsprozess</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 md:mb-12">Unser Arbeitsprozess</h2>
         </ScrollReveal>
         <div className="max-w-6xl mx-auto">
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-8 md:space-y-16 lg:space-y-24">
             {processSteps.map((item, index) => (
               <ScrollReveal key={index} delay={(index % 2) * 100}>
-                <div className={`flex items-center gap-8 ${item.reverse ? 'flex-row-reverse' : ''}`}>
-                <div className="flex-1">
+                <div className={`flex flex-col items-stretch gap-4 md:items-center md:gap-8 ${item.reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                <div className="w-full min-w-0 md:flex-1">
                   <Card className="h-full transition-all duration-300 hover:shadow-lg hover:scale-105 hover:bg-craft-warm/50">
-                    <CardContent className="p-8">
-                      <div className="flex items-start space-x-4 mb-4">
+                    <CardContent className="p-5 md:p-8">
+                      <div className="mb-4 flex items-start gap-3 md:gap-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg transition-transform duration-300 hover:scale-110">
                           {item.step}
                         </div>
-                        <h4 className="text-2xl font-semibold">{item.title}</h4>
+                        <h4 className="text-xl font-semibold md:text-2xl">{item.title}</h4>
                       </div>
                       <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                     </CardContent>
                   </Card>
                 </div>
-                <div className="flex-1">
+                <div className="w-full min-w-0 md:flex-1">
                   <div className="aspect-video bg-secondary/20 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105">
                     <img 
                       src={item.imageUrl} 
